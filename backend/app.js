@@ -7,7 +7,7 @@ require('dotenv').config();
 // Create app
 const app = express();
 
-// Improted routes
+// Imported routes
 const userRoutes = require('./routes/userRoutes');
 const itemRoutes = require('./routes/itemRoutes');
 const purchaseRoutes = require('./routes/purchaseRoutes');
@@ -38,9 +38,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log(
-        `Successfully connected to database. Server is listening on port ${process.env.PORT}.`
-      );
+      console.log(`Successfully connected to database. Server is listening on port ${process.env.PORT}.`);
     });
   })
   .catch((err) => {

@@ -103,26 +103,4 @@ userSchema.statics.login = async function (email, password) {
   return user;
 };
 
-userSchema.statics.deleteUser = async function (user_id, password) {
-  if (!password) {
-    throw Error('All fields must be filled!');
-  }
-
-  const user = await this.findById(user_id);
-
-  if (!user) {
-    throw Error('There was an error!');
-  }
-
-  const passwordsMatch = await bcrypt.compare(password, user.password);
-
-  if (!passwordsMatch) {
-    throw Error('Incorrect password!');
-  }
-
-  const deletedUser = await this.findByIdAndDelete(user_id);
-
-  return deletedUser;
-};
-
 module.exports = mongoose.model('User', userSchema);

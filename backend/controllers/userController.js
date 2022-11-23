@@ -47,19 +47,4 @@ const login = async (req, res) => {
   }
 };
 
-const deleteUser = async (req, res) => {
-  const user_id = req.user._id;
-  const { password } = req.body;
-
-  try {
-    const user = await User.deleteUser(user_id, password);
-
-    // delete all data associated with user
-
-    res.status(200).json({ email: user.email });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
-
-module.exports = { signup, login, deleteUser };
+module.exports = { signup, login };

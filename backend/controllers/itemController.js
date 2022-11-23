@@ -22,7 +22,4 @@ const getMany = async (req, res) => {
   }
 };
 
-module.exports = {
-  getOne,
-  getMany,
-};
+module.exports = { getOne, getMany };
