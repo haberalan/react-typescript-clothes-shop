@@ -47,7 +47,7 @@ export const Checkout = () => {
 
   const cart = useAppSelector(cartAll);
 
-  const user = useAppSelector(getUser);
+  const token = JSON.parse(localStorage.getItem('CLOTHES-SHOP_token') as string);
 
   useEffect(() => {
     if (clothes.items.length === 0) dispatch(fetchClothes());
@@ -79,10 +79,10 @@ export const Checkout = () => {
               <span className="name">Total:</span>
               <span className="details">{totalValues(cart.items, clothes.items).total} £</span>
             </p>
-            <button disabled={cart.items.length === 0 || !user.token} onClick={clickHandler}>
+            <button disabled={cart.items.length === 0 || !token} onClick={clickHandler}>
               PURCHASE
             </button>
-            {!user.token && <p className="not-logged">You have to be logged in.</p>}
+            {!token && cart.items.length > 0 && <p className="not-logged">You have to be logged in.</p>}
           </CheckoutDetails>
         </Container>
       )}

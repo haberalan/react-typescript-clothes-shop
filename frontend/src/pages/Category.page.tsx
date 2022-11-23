@@ -23,7 +23,7 @@ export const Category = ({ forWho }: CategoryProps) => {
   return (
     <Container>
       <h2>{pathname}</h2>
-      <Link to={`/${forWho}`}>Go back</Link>
+      <Link to={`/${forWho}`}>Go to {forWho}</Link>
       <CategoryList category={category} forWho={forWho} />
     </Container>
   );

@@ -74,9 +74,7 @@ export const Footer = () => {
           </ul>
         </MenuContainer>
       </Menus>
-      <Copyright href="https://github.com/haberalan">
-        © 2022 Alan Haber
-      </Copyright>
+      <Copyright href="https://github.com/haberalan">© 2022 Alan Haber</Copyright>
     </StyledFooter>
   );
 };
@@ -90,11 +88,19 @@ const StyledFooter = styled.footer`
   align-items: center;
   gap: 4rem;
   padding: 2rem 0 1rem;
+
+  @media (max-width: 340px) {
+    padding: 2rem 1rem 1rem;
+  }
 `;
 
 const Menus = styled.div`
   display: flex;
   gap: 4rem;
+
+  @media (max-width: 450px) {
+    gap: 2rem;
+  }
 `;
 
 const MenuContainer = styled.div`
@@ -122,6 +128,22 @@ const MenuContainer = styled.div`
 
   a:hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: 550px) {
+    gap: 0.6rem;
+
+    h2 {
+      font-size: 0.8rem;
+    }
+
+    a {
+      font-size: 0.6rem;
+    }
+
+    ul {
+      gap: 0.2rem;
+    }
   }
 `;
 

@@ -75,6 +75,7 @@ const Container = styled.div`
   }
 
   & > a {
+    font-size: 1rem;
     align-self: center;
     padding: 1rem 4rem;
     cursor: pointer;
@@ -83,7 +84,6 @@ const Container = styled.div`
     font-weight: 700;
     border: none;
     font-family: inherit;
-    font-size: 1rem;
     text-decoration: none;
   }
 
@@ -110,5 +110,20 @@ const Container = styled.div`
 
   .items::-webkit-scrollbar-corner {
     display: none;
+  }
+
+  @media (max-width: 900px) {
+    top: 180%;
+  }
+
+  @media (max-width: 450px) {
+    width: auto;
+  }
+
+  @media (max-width: 400px) {
+    & > a {
+      font-size: 1rem;
+      padding: 0.6rem 2rem;
+    }
   }
 `;

@@ -49,6 +49,7 @@ export const CartItem = ({ item }: CartItemProps) => {
 const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
 
   img {
@@ -57,6 +58,18 @@ const ListItem = styled.li`
 
   .btns-image {
     display: flex;
+  }
+
+  @media (max-width: 450px) {
+    img {
+      height: 160px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    img {
+      display: none;
+    }
   }
 `;
 
@@ -99,6 +112,7 @@ const Btns = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 0.2rem;
   align-items: center;
   padding: 0.4rem;
 

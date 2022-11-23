@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { getUser } from '../../../features/user/userSlice';
 import { PurchaseType } from '../../../types/Purchase';
-import { useAppSelector } from '../../hooks/useRedux';
-import { Loader } from '../../utils/Loader';
+import { Loader } from '../Utils/Loader';
 import { PurchasesItem } from './PurchasesItem';
 
 export const PurchasesList = () => {
-  const user = useAppSelector(getUser);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [items, setItems] = useState<PurchaseType[]>([]);
@@ -19,23 +15,23 @@ export const PurchasesList = () => {
       const res = await fetch(process.env.REACT_APP_API + 'purchase/all', {
         method: 'GET',
         headers: {
-          Authorization: `Baerer ${user.token}`,
+          Authorization: `Baerer ${JSON.parse(localStorage.getItem('CLOTHES-SHOP_token') as string)}`,
         },
       });
 
       if (!res.ok) {
-        setLoading(false);
-        return setError(true);
+        setError(true);
+      } else {
+        const data = await res.json();
+
+        setItems(data);
       }
 
-      const data = await res.json();
-
-      setItems(data);
       setLoading(false);
     };
 
     fetchItems();
-  }, [user.token]);
+  }, []);
 
   return (
     <Container>

@@ -8,7 +8,7 @@ import { useAppDispatch } from '../common/hooks/useRedux';
 import { clothesAll, fetchClothes } from '../features/clothes/clothesSlice';
 import { PurchaseType } from '../types/Purchase';
 import { useAppSelector } from '../common/hooks/useRedux';
-import { Loader } from '../common/utils/Loader';
+import { Loader } from '../common/components/Utils/Loader';
 import { ClothType } from '../types/Cloth';
 import { CartType } from '../types/Cart';
 import { PurchaseDetailsList } from '../common/components/Profile/PurchaseDetailsList';

@@ -76,7 +76,7 @@ export const Item = () => {
               <p>{item.desc}</p>
             </Details>
           </div>
-          <Link to={`/${item?.forWho}/${item?.category}`}>Go back</Link>
+          <Link to={`/${item?.forWho}/${item?.category}`}>Go to {item?.category}</Link>
         </>
       )}
     </Container>

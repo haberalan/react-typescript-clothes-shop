@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { useAppSelector } from '../../hooks/useRedux';
 import { CategoryItem } from './CategoryItem';
-import { Loader } from '../../utils/Loader';
+import { Loader } from '../Utils/Loader';
 import { clothesAll } from '../../../features/clothes/clothesSlice';
 
 type CategoryListProps = {

@@ -6,13 +6,11 @@ import { useAppSelector, useAppDispatch } from '../common/hooks/useRedux';
 import { setCart } from '../features/cart/cartSlice';
 import { setUser } from '../features/user/userSlice';
 import { GlobalStyle } from './GlobalStyles';
-import { ScrollToTop } from '../common/utils/ScrollToTop';
+import { ScrollToTop } from '../common/components/Utils/ScrollToTop';
 import { Layout } from '../common/components/Layout/Layout';
 
 import { Home } from '../pages/Home.page';
-import { Men } from '../pages/Men.page';
-import { Women } from '../pages/Women.page';
-import { Kids } from '../pages/Kids.page';
+import { ForWho } from '../pages/ForWho.page';
 import { Category } from '../pages/Category.page';
 import { Item } from '../pages/Item.page';
 import { Signup } from '../pages/Signup.page';
@@ -52,17 +50,17 @@ export const App = () => {
         <Routes>
           <Route index element={<Home />} />
           <Route path="men">
-            <Route index element={<Men />} />
+            <Route index element={<ForWho forWho="men" />} />
             <Route path=":category" element={<Category forWho="men" />} />
             <Route path="item/:id" element={<Item />} />
           </Route>
           <Route path="women">
-            <Route index element={<Women />} />
+            <Route index element={<ForWho forWho="women" />} />
             <Route path=":category" element={<Category forWho="women" />} />
             <Route path="item/:id" element={<Item />} />
           </Route>
           <Route path="kids">
-            <Route index element={<Kids />} />
+            <Route index element={<ForWho forWho="kids" />} />
             <Route path=":category" element={<Category forWho="Kids" />} />
             <Route path="item/:id" element={<Item />} />
           </Route>

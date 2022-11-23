@@ -28,7 +28,7 @@ export const Header = () => {
         <NavLink to="/women">WOMEN</NavLink>
         <NavLink to="/kids">KIDS</NavLink>
       </Navbar>
-      <Link to="/">
+      <Link to="/" className="logo">
         <Logo src={LogoImage} alt="logo" />
       </Link>
       <MenuAndCart>
@@ -58,6 +58,21 @@ const StyledHeader = styled.header`
   a.active {
     border-bottom: 3px solid #e50010;
   }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90vw;
+    gap: 0;
+
+    .logo {
+      grid-column: -1 / 1;
+      order: 1;
+    }
+  }
+
+  @media (max-width: 340px) {
+    gap: 0;
+  }
 `;
 
 const Navbar = styled.nav`
@@ -72,10 +87,37 @@ const Navbar = styled.nav`
     border-bottom: 3px solid transparent;
     transition: all 0.2s ease-in-out;
   }
+
+  @media (max-width: 1200px) {
+    & > a {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 1050px) {
+    gap: 0.2rem;
+
+    & > a {
+      padding: 0.2rem 0.4rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    justify-self: start;
+    gap: 0;
+
+    & > a {
+      font-size: 1rem;
+    }
+  }
 `;
 
 const Logo = styled.img`
   height: 80px;
+
+  @media (max-width: 900px) {
+    height: 60px;
+  }
 `;
 
 const MenuAndCart = styled.div`
@@ -114,5 +156,45 @@ const MenuAndCart = styled.div`
     width: 32px;
     fill: #1d1f22;
     cursor: pointer;
+  }
+
+  @media (max-width: 1200px) {
+    & > a {
+      font-size: 1.2rem;
+    }
+
+    svg {
+      height: 24px;
+      width: 24px;
+    }
+
+    .amount {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 1050px) {
+    gap: 0.2rem;
+
+    & > a {
+      padding: 0.2rem 0.4rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    justify-self: end;
+
+    & > a {
+      font-size: 1rem;
+    }
+
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+
+    .amount {
+      font-size: 0.6rem;
+    }
   }
 `;
