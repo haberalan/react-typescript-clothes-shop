@@ -9,7 +9,6 @@ import { CheckoutList } from '../common/components/Checkout/CheckoutList';
 import { CartType } from '../types/Cart';
 import { ClothType } from '../types/Cloth';
 import lottieJson from '../common/assets/loading.json';
-import { getUser } from '../features/user/userSlice';
 import { cartAll } from '../features/cart/cartSlice';
 
 const totalValues = (cartTable: CartType[], clothesTable: ClothType[]) => {
