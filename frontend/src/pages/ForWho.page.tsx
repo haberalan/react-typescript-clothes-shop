@@ -45,7 +45,6 @@ export const ForWho = ({ forWho }: ForWhoProps) => {
 
 const Container = styled.div`
   display: flex;
-  min-height: 80vh;
   flex-direction: column;
   gap: 2rem;
   justify-content: center;
