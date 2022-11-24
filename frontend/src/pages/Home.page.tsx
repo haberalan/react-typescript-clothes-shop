@@ -32,7 +32,6 @@ const Container = styled.div`
   position: relative;
   display: flex;
   gap: 0.2rem;
-  margin: 8rem;
   justify-content: space-between;
 
   img {
@@ -40,24 +39,18 @@ const Container = styled.div`
   }
 
   @media (max-width: 1700px) {
-    margin: 6rem;
-
     img {
       height: 500px;
     }
   }
 
   @media (max-width: 1400px) {
-    margin: 4rem;
-
     img {
       height: 400px;
     }
   }
 
   @media (max-width: 1000px) {
-    margin: 4rem 0;
-
     img {
       height: 300px;
     }
@@ -65,7 +58,7 @@ const Container = styled.div`
 
   @media (max-width: 700px) {
     img {
-      height: 400px;
+      height: 360px;
     }
 
     .img2 {

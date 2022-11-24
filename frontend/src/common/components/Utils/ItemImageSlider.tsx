@@ -13,12 +13,7 @@ export const ItemImageSlider = ({ images }: ItemImageSliderProps) => {
       <ImagesList>
         {images.map((image) => (
           <li key={image}>
-            <img
-              src={image}
-              alt="cloth example"
-              onMouseEnter={() => setSelectedImage(image)}
-              onMouseLeave={() => setSelectedImage(images[0])}
-            />
+            <img src={image} alt="cloth example" onMouseEnter={() => setSelectedImage(image)} onMouseLeave={() => setSelectedImage(images[0])} />
           </li>
         ))}
       </ImagesList>
@@ -30,10 +25,36 @@ export const ItemImageSlider = ({ images }: ItemImageSliderProps) => {
 const Container = styled.div`
   display: flex;
   gap: 1rem;
+  justify-content: center;
 
   img {
     height: 500px;
     width: 350px;
+  }
+
+  @media (max-width: 900px) {
+    img {
+      height: 300px;
+      width: 220px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    order: 1;
+    flex-direction: column;
+
+    img {
+      order: -1;
+      height: 500px;
+      width: 350px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    img {
+      height: 300px;
+      width: 220px;
+    }
   }
 `;
 
@@ -46,5 +67,30 @@ const ImagesList = styled.ul`
     height: 120px;
     width: 100px;
     cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    img {
+      height: 80px;
+      width: 64px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+
+    img {
+      height: 150px;
+      width: 120px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    img {
+      height: 100px;
+      width: 80px;
+    }
   }
 `;

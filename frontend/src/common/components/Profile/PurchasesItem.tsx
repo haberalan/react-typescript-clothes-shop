@@ -43,4 +43,11 @@ const ListItem = styled.li`
   a:hover {
     background-color: #cdcdcd;
   }
+
+  @media (max-width: 450px) {
+    a {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
 `;

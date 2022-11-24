@@ -44,4 +44,14 @@ const List = styled.ul`
   &::-webkit-scrollbar-corner {
     display: none;
   }
+
+  @media (max-width: 650px) {
+    gap: 2rem;
+    width: 400px;
+  }
+
+  @media (max-width: 450px) {
+    width: 260px;
+    padding: 0;
+  }
 `;

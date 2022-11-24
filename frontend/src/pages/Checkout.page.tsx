@@ -78,11 +78,19 @@ export const Checkout = () => {
               <span className="name">Total:</span>
               <span className="details">{totalValues(cart.items, clothes.items).total} £</span>
             </p>
+            <ConfirmCheckout className="normal">
+              <button disabled={cart.items.length === 0 || !token} onClick={clickHandler}>
+                PURCHASE
+              </button>
+              {!token && cart.items.length > 0 && <p className="not-logged">You have to be logged in.</p>}
+            </ConfirmCheckout>
+          </CheckoutDetails>
+          <ConfirmCheckout className="additional">
             <button disabled={cart.items.length === 0 || !token} onClick={clickHandler}>
               PURCHASE
             </button>
             {!token && cart.items.length > 0 && <p className="not-logged">You have to be logged in.</p>}
-          </CheckoutDetails>
+          </ConfirmCheckout>
         </Container>
       )}
     </>
@@ -90,11 +98,8 @@ export const Checkout = () => {
 };
 
 const Container = styled.div`
-  margin: 4rem 0 8rem;
   display: flex;
   gap: 2rem;
-  justify-content: center;
-  align-items: flex-start;
 
   .items {
     padding: 0.4rem 1rem;
@@ -120,11 +125,33 @@ const Container = styled.div`
   .items::-webkit-scrollbar-corner {
     display: none;
   }
+
+  .additional {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+
+    .normal {
+      display: none;
+    }
+
+    .additional {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .items {
+      padding: 0;
+    }
+  }
 `;
 
 const CheckoutDetails = styled.div`
   width: 320px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -148,6 +175,28 @@ const CheckoutDetails = styled.div`
   p > .details {
     font-weight: 700;
   }
+
+  @media (max-width: 900px) {
+    order: -1;
+
+    .title {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 350px) {
+    width: 260px;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+`;
+
+const ConfirmCheckout = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 
   .not-logged {
     align-self: center;

@@ -48,7 +48,7 @@ export const Item = () => {
       )}
       {item && !isLoading && (
         <>
-          <div className="content">
+          <Content>
             <ItemImageSlider images={item.imgs} />
             <Details>
               <h3>{item.name}</h3>
@@ -75,7 +75,7 @@ export const Item = () => {
               <button onClick={() => dispatch(add({ _id: item._id, size: enteredSize as string }))}>ADD TO CART</button>
               <p>{item.desc}</p>
             </Details>
-          </div>
+          </Content>
           <Link to={`/${item?.forWho}/${item?.category}`}>Go to {item?.category}</Link>
         </>
       )}
@@ -89,19 +89,26 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin: 6rem 0;
 
   & > a {
     color: inherit;
     font-weight: 700;
     text-decoration: none;
   }
+`;
 
-  .content {
-    display: flex;
-    gap: 8rem;
-    justify-content: center;
-    align-items: center;
+const Content = styled.div`
+  display: flex;
+  gap: 8rem;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1000px) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
   }
 `;
 
@@ -137,6 +144,30 @@ const Details = styled.div`
     border: none;
     font-family: inherit;
   }
+
+  @media (max-width: 400px) {
+    align-items: center;
+    justify-content: center;
+
+    & > div {
+      width: 250px;
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    & > p {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    & > p {
+      width: 250px;
+    }
+  }
 `;
 
 const DetailsItem = styled.div`
@@ -151,6 +182,13 @@ const DetailsItem = styled.div`
   div {
     display: flex;
     gap: 0.6rem;
+  }
+
+  @media (max-width: 400px) {
+    & > div {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 `;
 
@@ -167,5 +205,11 @@ const SizeBox = styled.div`
   &.choosed {
     background: #e4e4e4;
     font-weight: 700;
+  }
+
+  @media (max-width: 400px) {
+    padding: 0 0.2rem;
+    font-size: 0.8rem;
+    height: 1rem;
   }
 `;

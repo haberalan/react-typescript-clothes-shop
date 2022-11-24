@@ -30,7 +30,6 @@ export const Category = ({ forWho }: CategoryProps) => {
 };
 
 const Container = styled.div`
-  padding: 4rem;
   min-height: 60vh;
   display: flex;
   flex-direction: column;

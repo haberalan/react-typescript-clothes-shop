@@ -29,7 +29,13 @@ const List = styled.ul`
     font-weight: 700;
   }
 
-  a:hover {
-    /* text-decoration: underline; */
+  @media (max-width: 400px) {
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 300px) {
+    gap: 0.4rem;
   }
 `;

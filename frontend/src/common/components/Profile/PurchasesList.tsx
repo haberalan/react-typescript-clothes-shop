@@ -88,4 +88,13 @@ const List = styled.ul`
   &::-webkit-scrollbar-corner {
     display: none;
   }
+
+  @media (max-width: 550px) {
+    width: 400px;
+  }
+
+  @media (max-width: 450px) {
+    width: 260px;
+    padding: 0.4rem 0.4rem;
+  }
 `;

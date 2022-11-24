@@ -116,7 +116,6 @@ export const Purchase = () => {
 };
 
 const Container = styled.div`
-  margin: 8rem 0 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -154,6 +153,11 @@ const Content = styled.div`
     font-weight: 700;
     text-decoration: none;
   }
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Details = styled.div`
@@ -174,5 +178,17 @@ const Details = styled.div`
 
   .value {
     font-weight: 700;
+  }
+
+  @media (max-width: 1100px) {
+    order: -1;
+  }
+
+  @media (max-width: 450px) {
+    width: 260px;
+
+    div {
+      font-size: 1rem;
+    }
   }
 `;

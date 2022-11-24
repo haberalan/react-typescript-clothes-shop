@@ -17,7 +17,7 @@ import { Signup } from '../pages/Signup.page';
 import { Login } from '../pages/Login.page';
 import { Checkout } from '../pages/Checkout.page';
 import { Profile } from '../pages/Profile.page';
-import { MakePurchase } from '../pages/MakePurchase.page';
+import { CheckoutPurchase } from '../pages/CheckoutPurchase';
 import { Purchase } from '../pages/Purchase.page';
 import { NotFound } from '../pages/NotFound.page';
 
@@ -66,7 +66,7 @@ export const App = () => {
           </Route>
           <Route path="checkout">
             <Route index element={<Checkout />} />
-            <Route path="details" element={user.user ? <MakePurchase /> : <Navigate to="/checkout" />} />
+            <Route path="details" element={user.user ? <CheckoutPurchase /> : <Navigate to="/checkout" />} />
           </Route>
           <Route path="signup" element={!user.user ? <Signup /> : <Navigate to="/profile" />} />
           <Route path="login" element={!user.user ? <Login /> : <Navigate to="/profile" />} />

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { CartItem } from './CartItem';
+import { CartBoxItem } from './CartBoxItem';
 
 import { useAppSelector } from '../../hooks/useRedux';
 import { cartAll } from '../../../features/cart/cartSlice';
 
-export const CartList = () => {
+export const CartBoxList = () => {
   const cart = useAppSelector(cartAll);
 
   return (
@@ -12,7 +12,7 @@ export const CartList = () => {
       {cart.items.length > 0 && (
         <List>
           {cart.items.map((item) => (
-            <CartItem key={item._id + item.size} item={item} />
+            <CartBoxItem key={item._id + item.size} item={item} />
           ))}
         </List>
       )}

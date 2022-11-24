@@ -67,7 +67,6 @@ export const Login = () => {
 };
 
 const Container = styled.div`
-  margin: 8rem 0 12rem;
   display: flex;
   flex-direction: column;
   align-items: center;

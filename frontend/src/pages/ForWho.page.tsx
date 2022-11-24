@@ -35,9 +35,9 @@ export const ForWho = ({ forWho }: ForWhoProps) => {
     <Container>
       <CategoriesList categories={categories} filter={forWho} />
       <div>
-        <img src={images[0]} alt={forWho + '1'} />
-        <img src={images[1]} alt={forWho + '2'} />
-        <img src={images[2]} alt={forWho + '3'} />
+        <img src={images[0]} alt={forWho + '1'} className="img1" />
+        <img src={images[1]} alt={forWho + '2'} className="img2" />
+        <img src={images[2]} alt={forWho + '3'} className="img3" />
       </div>
     </Container>
   );
@@ -58,5 +58,45 @@ const Container = styled.div`
 
   img {
     height: 600px;
+  }
+
+  @media (max-width: 1300px) {
+    img {
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    img {
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 850px) {
+    img {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .img2 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 450px) {
+    img {
+      height: 500px;
+    }
+
+    div {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 350px) {
+    img {
+      height: 400px;
+    }
   }
 `;

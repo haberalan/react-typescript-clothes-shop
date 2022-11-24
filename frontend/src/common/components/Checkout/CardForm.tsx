@@ -1,29 +1,29 @@
 import styled from 'styled-components';
 
-export const CardBox = () => {
+export const CardForm = () => {
   return (
     <Container>
       <h2>Card</h2>
       <Normal>
         <label htmlFor="">Name</label>
-        <input type="text" />
+        <input type="text" placeholder="John Johnny" />
       </Normal>
       <Normal>
         <label htmlFor="">Card number</label>
-        <input type="text" />
+        <input type="text" placeholder="0000 0000 0000 0000" />
       </Normal>
       <Short>
         <div>
           <label htmlFor="">CVC</label>
-          <input type="text" />
+          <input type="text" placeholder="000" />
         </div>
         <div>
           <label htmlFor="">Month</label>
-          <input type="text" />
+          <input type="text" placeholder="00" />
         </div>
         <div>
           <label htmlFor="">Year</label>
-          <input type="text" />
+          <input type="text" placeholder="0000" />
         </div>
       </Short>
     </Container>
@@ -53,6 +53,14 @@ const Container = styled.form`
     font-family: inherit;
     color: inherit;
     border: 1px solid #1d1f22;
+  }
+
+  @media (max-width: 900px) {
+    order: 1;
+  }
+
+  @media (max-width: 510px) {
+    width: 260px;
   }
 `;
 

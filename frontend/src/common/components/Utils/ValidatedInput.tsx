@@ -59,7 +59,7 @@ const Input = styled.div`
   display: flex;
   gap: 0.4rem;
   flex-direction: column;
-  width: 20rem;
+  width: 320px;
 
   .invalid {
     background: #fce6e7;
@@ -99,5 +99,9 @@ const Input = styled.div`
 
   div > ul > li {
     margin-left: 1rem;
+  }
+
+  @media (max-width: 360px) {
+    width: 260px;
   }
 `;

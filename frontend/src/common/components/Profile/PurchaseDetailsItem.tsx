@@ -40,6 +40,7 @@ export const PurchaseDetailsItem = ({ item }: PurchaseDetailsItemProps) => {
 const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
 
   img {
@@ -48,6 +49,24 @@ const ListItem = styled.li`
 
   .btns-image {
     display: flex;
+  }
+
+  @media (max-width: 650px) {
+    img {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    img {
+      height: 120px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    img {
+      display: none;
+    }
   }
 `;
 
@@ -94,5 +113,19 @@ const Details = styled.div`
   .amount {
     font-weight: 700;
     font-size: 1.2rem;
+  }
+
+  @media (max-width: 650px) {
+    .title,
+    .price,
+    .color,
+    .amount {
+      font-size: 1rem;
+    }
+
+    div {
+      flex-direction: row;
+      align-items: center;
+    }
   }
 `;

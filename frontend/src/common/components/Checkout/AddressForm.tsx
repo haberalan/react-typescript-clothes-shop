@@ -1,33 +1,33 @@
 import styled from 'styled-components';
 
-export const AddressBox = () => {
+export const AddressForm = () => {
   return (
     <Container>
       <h2>Address</h2>
       <Grid>
         <div>
           <label htmlFor="">Country</label>
-          <input type="text" />
+          <input type="text" placeholder="Poland" />
         </div>
         <div>
-          <label htmlFor="">Country</label>
-          <input type="text" />
+          <label htmlFor="">Voivodeship</label>
+          <input type="text" placeholder="Masovian" />
         </div>
       </Grid>
       <Grid>
         <div>
           <label htmlFor="">Street</label>
-          <input type="text" />
+          <input type="text" placeholder="Funny" />
         </div>
         <div>
-          <label htmlFor="">Apartment</label>
-          <input type="text" />
+          <label htmlFor="">Number</label>
+          <input type="text" placeholder="23A" />
         </div>
       </Grid>
       <Grid>
         <div>
           <label htmlFor="">Flat number</label>
-          <input type="text" />
+          <input type="text" placeholder="2" />
         </div>
       </Grid>
     </Container>
@@ -58,6 +58,10 @@ const Container = styled.form`
     color: inherit;
     border: 1px solid #1d1f22;
   }
+
+  @media (max-width: 510px) {
+    width: 260px;
+  }
 `;
 
 const Grid = styled.div`
@@ -75,5 +79,11 @@ const Grid = styled.div`
   input {
     box-sizing: border-box;
     width: 100%;
+  }
+
+  @media (max-width: 510px) {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
   }
 `;

@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../common/hooks/useRedux';
 import { cartAll, setCart } from '../features/cart/cartSlice';
 import { clothesAll, fetchClothes } from '../features/clothes/clothesSlice';
-import { CardBox } from '../common/components/Checkout/CardBox';
-import { AddressBox } from '../common/components/Checkout/AddressBox';
+import { CardForm } from '../common/components/Checkout/CardForm';
+import { AddressForm } from '../common/components/Checkout/AddressForm';
 import { CartType } from '../types/Cart';
 import { ClothType } from '../types/Cloth';
 import { useNavigate } from 'react-router';
@@ -23,7 +23,7 @@ const totalValues = (cartTable: CartType[], clothesTable: ClothType[]) => {
   return total.toFixed(2);
 };
 
-export const MakePurchase = () => {
+export const CheckoutPurchase = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -67,8 +67,8 @@ export const MakePurchase = () => {
   return (
     <Container>
       <Flex>
-        <CardBox />
-        <AddressBox />
+        <CardForm />
+        <AddressForm />
       </Flex>
       <button onClick={submitHandler} disabled={!formIsValid}>
         PURCHASE
@@ -102,10 +102,27 @@ const Container = styled.div`
     cursor: default;
     color: #fff;
   }
+
+  @media (max-width: 500px) {
+    p {
+      padding: 0 0.4rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 const Flex = styled.div`
   display: flex;
   gap: 4rem;
   align-items: flex-start;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (max-width: 510px) {
+    align-items: center;
+  }
 `;

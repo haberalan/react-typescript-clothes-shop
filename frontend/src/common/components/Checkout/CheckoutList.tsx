@@ -21,7 +21,6 @@ export const CheckoutList = () => {
 
 const List = styled.ul`
   width: 700px;
-  height: 500px;
   max-height: 500px;
   display: flex;
   flex-direction: column;
@@ -31,5 +30,21 @@ const List = styled.ul`
     margin-top: 6rem;
     align-self: center;
     font-weight: 700;
+  }
+
+  @media (max-width: 1100px) {
+    width: 500px;
+  }
+
+  @media (max-width: 550px) {
+    width: 400px;
+  }
+
+  @media (max-width: 450px) {
+    width: 300px;
+  }
+
+  @media (max-width: 350px) {
+    width: 260px;
   }
 `;

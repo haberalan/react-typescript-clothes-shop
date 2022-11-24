@@ -41,6 +41,27 @@ const Container = styled.div`
     text-decoration: none;
     color: inherit;
   }
+
+  @media (max-width: 700px) {
+    img {
+      height: 300px;
+      width: 240px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    img {
+      height: 400px;
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 350px) {
+    img {
+      height: 300px;
+      width: 240px;
+    }
+  }
 `;
 
 const Details = styled.div`

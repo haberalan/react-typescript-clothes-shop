@@ -11,7 +11,7 @@ type CartItemProps = {
   item: CartType;
 };
 
-export const CartItem = ({ item }: CartItemProps) => {
+export const CartBoxItem = ({ item }: CartItemProps) => {
   const dispatch = useAppDispatch();
 
   const cloth = useAppSelector((state) => clothesOne(state, item._id));

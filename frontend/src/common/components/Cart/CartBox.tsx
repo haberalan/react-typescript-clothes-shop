@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { clothesAll, fetchClothes } from '../../../features/clothes/clothesSlice';
-import { CartList } from './CartList';
+import { CartBoxList } from './CartBoxList';
 import { Link } from 'react-router-dom';
 
 type CartBoxProps = {
@@ -31,7 +31,7 @@ export const CartBox = ({ toggleCart, amount }: CartBoxProps) => {
         <div className="items">
           {clothes.loading && <p>Loading...</p>}
           {clothes.error && <p>{clothes.error}</p>}
-          {!clothes.loading && !clothes.error && <CartList />}
+          {!clothes.loading && !clothes.error && <CartBoxList />}
         </div>
         <Link to="/checkout" onClick={toggleCart}>
           GO TO CHECKOUT
@@ -55,7 +55,7 @@ const Container = styled.div`
   background: #e4e4e4;
   background: #fff;
   top: 200%;
-  right: -10px;
+  right: 0px;
   z-index: 10;
   padding: 1rem 0.2rem;
   box-sizing: border-box;
@@ -113,14 +113,24 @@ const Container = styled.div`
   }
 
   @media (max-width: 900px) {
-    top: 180%;
+    top: 120%;
   }
 
   @media (max-width: 450px) {
-    width: auto;
+    width: 300px;
   }
 
   @media (max-width: 400px) {
+    width: 240px;
+
+    .items {
+      padding: 0.2rem;
+    }
+
+    & > p {
+      padding: 0 0.2rem;
+    }
+
     & > a {
       font-size: 1rem;
       padding: 0.6rem 2rem;

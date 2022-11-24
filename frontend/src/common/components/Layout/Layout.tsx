@@ -17,4 +17,6 @@ export const Layout = ({ children }: LayoutProps) => {
   );
 };
 
-const StyledMain = styled.main``;
+const StyledMain = styled.main`
+  margin: 4rem 0 6rem;
+`;

@@ -62,20 +62,22 @@ const StyledHeader = styled.header`
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
     width: 90vw;
-    gap: 0;
+    margin-top: 0rem;
+    padding: 0.2rem;
 
     .logo {
       grid-column: -1 / 1;
-      order: 1;
+      order: -1;
     }
   }
 
-  @media (max-width: 340px) {
-    gap: 0;
+  @media (max-width: 400px) {
+    width: 96vw;
   }
 `;
 
 const Navbar = styled.nav`
+  padding: 0.2rem;
   display: flex;
   gap: 1rem;
 
@@ -95,7 +97,7 @@ const Navbar = styled.nav`
   }
 
   @media (max-width: 1050px) {
-    gap: 0.2rem;
+    gap: 0;
 
     & > a {
       padding: 0.2rem 0.4rem;
@@ -110,6 +112,9 @@ const Navbar = styled.nav`
       font-size: 1rem;
     }
   }
+
+  @media (max-width: 350px) {
+  }
 `;
 
 const Logo = styled.img`
@@ -121,6 +126,7 @@ const Logo = styled.img`
 `;
 
 const MenuAndCart = styled.div`
+  padding: 0.2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -148,7 +154,8 @@ const MenuAndCart = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 0;
+    right: 4px;
+    z-index: 100;
   }
 
   svg {

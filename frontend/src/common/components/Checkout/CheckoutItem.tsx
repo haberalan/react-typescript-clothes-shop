@@ -61,6 +61,12 @@ const ListItem = styled.li`
   .btns-image {
     display: flex;
   }
+
+  @media (max-width: 450px) {
+    img {
+      display: none;
+    }
+  }
 `;
 
 const Details = styled.div`
@@ -105,6 +111,16 @@ const Details = styled.div`
   .color {
     font-weight: 700;
     font-size: 1.2rem;
+  }
+
+  @media (max-width: 450px) {
+    .title {
+      font-size: 1rem;
+    }
+
+    .price {
+      font-size: 1.2rem;
+    }
   }
 `;
 

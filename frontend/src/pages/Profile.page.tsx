@@ -22,7 +22,6 @@ export const Profile = () => {
 };
 
 const Container = styled.div`
-  margin: 8rem 0 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,6 +47,12 @@ const Container = styled.div`
     font-size: 1.2rem;
     border: none;
     font-family: inherit;
+  }
+
+  @media (max-width: 350px) {
+    .title {
+      font-size: 1.4rem;
+    }
   }
 `;
 
