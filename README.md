@@ -4,7 +4,7 @@ Clothes shop - you can try it [here](https://haber-clothes-shop.netlify.app/)
 
 ## Technologies
 
-- Full MERN stack app with TypeScript
+- Full MERN stack app
 - Mongodb
 - TypeScript
 - React (react-router)
