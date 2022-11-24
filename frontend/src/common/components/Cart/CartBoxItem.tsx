@@ -31,7 +31,7 @@ export const CartBoxItem = ({ item }: CartItemProps) => {
         </div>
       </Details>
       <div className="btns-image">
-        <Btns>
+        <Buttons>
           <button onClick={() => dispatch(add({ _id: item._id, size: item.size }))}>
             <AddIcon />
           </button>
@@ -39,7 +39,7 @@ export const CartBoxItem = ({ item }: CartItemProps) => {
           <button onClick={() => dispatch(remove({ _id: item._id, size: item.size }))}>
             <RemoveIcon />
           </button>
-        </Btns>
+        </Buttons>
         <img src={cloth?.imgs[0]} alt="cloth example" />
       </div>
     </ListItem>
@@ -108,7 +108,7 @@ const Details = styled.div`
   }
 `;
 
-const Btns = styled.div`
+const Buttons = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

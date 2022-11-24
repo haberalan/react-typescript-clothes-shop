@@ -6,9 +6,9 @@ type ForWhoProps = {
   forWho: string;
 };
 
-const menCategories = ['t-shirt', 'trousers', 'jackets', 'accessories'];
-const womenCategories = ['dresses', 'skirts', 'jeans'];
-const kidsCategories = ['test'];
+const menCategories = ['T-shirt', 'Trousers', 'Jackets', 'Accessories'];
+const womenCategories = ['Dresses', 'Skirts', 'Jeans'];
+const kidsCategories = ['Test'];
 
 const men = [
   'https://images.pexels.com/photos/9558233/pexels-photo-9558233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',

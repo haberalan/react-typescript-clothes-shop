@@ -1,23 +1,17 @@
 import styled from 'styled-components';
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LogoImage from '../../assets/gm2l.webp';
 import { useAppSelector } from '../../hooks/useRedux';
+import { cartAmount } from '../../../features/cart/cartSlice';
 import { CartBox } from '../Cart/CartBox';
-import { cartAll } from '../../../features/cart/cartSlice';
 
 export const Header = () => {
   const [cartOpen, setCartOpen] = useState(false);
 
-  const cart = useAppSelector(cartAll);
-
-  const itemsAmount = useCallback(() => {
-    const amount = cart.items.map((item) => item.amount).reduce((prev, cur) => prev + cur, 0);
-
-    return amount;
-  }, [cart.items]);
+  const amount = useAppSelector(cartAmount);
 
   const toggleCartOpen = () => setCartOpen(!cartOpen);
 
@@ -35,8 +29,8 @@ export const Header = () => {
         <NavLink to="/profile">Profile</NavLink>
         <div className="cart">
           <ShoppingCartOutlinedIcon onClick={toggleCartOpen} />
-          <div className="amount">{itemsAmount() !== 0 && itemsAmount()}</div>
-          {cartOpen && <CartBox toggleCart={toggleCartOpen} amount={itemsAmount} />}
+          <div className="amount">{amount !== 0 && amount}</div>
+          {cartOpen && <CartBox toggleCart={toggleCartOpen} amount={amount} />}
         </div>
       </MenuAndCart>
     </StyledHeader>

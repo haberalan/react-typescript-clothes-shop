@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { useAppDispatch, useAppSelector } from '../common/hooks/useRedux';
@@ -6,22 +6,9 @@ import { cartAll, setCart } from '../features/cart/cartSlice';
 import { clothesAll, fetchClothes } from '../features/clothes/clothesSlice';
 import { CardForm } from '../common/components/Checkout/CardForm';
 import { AddressForm } from '../common/components/Checkout/AddressForm';
-import { CartType } from '../types/Cart';
-import { ClothType } from '../types/Cloth';
 import { useNavigate } from 'react-router';
 import { getUser } from '../features/user/userSlice';
-
-const totalValues = (cartTable: CartType[], clothesTable: ClothType[]) => {
-  let total = 0;
-
-  cartTable.forEach((cartItem) => {
-    const itemDetails = clothesTable.find((item) => item._id === cartItem._id);
-
-    total += itemDetails!.price * cartItem.amount;
-  });
-
-  return total.toFixed(2);
-};
+import { totalValues } from '../common/Helpers/totalValues';
 
 export const CheckoutPurchase = () => {
   const dispatch = useAppDispatch();
@@ -33,6 +20,8 @@ export const CheckoutPurchase = () => {
 
   const cart = useAppSelector(cartAll);
 
+  const total = useCallback(() => totalValues(cart.items, clothes.items).total, [cart.items, clothes.items]);
+
   useEffect(() => {
     if (clothes.items.length === 0) dispatch(fetchClothes());
   }, [clothes.items.length, dispatch]);
@@ -42,7 +31,7 @@ export const CheckoutPurchase = () => {
   const submitHandler = async () => {
     if (formIsValid) {
       const purchaseData = {
-        total: totalValues(cart.items, clothes.items),
+        total: total(),
         items: cart.items,
       };
 

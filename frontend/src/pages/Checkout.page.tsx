@@ -10,6 +10,7 @@ import { CartType } from '../types/Cart';
 import { ClothType } from '../types/Cloth';
 import lottieJson from '../common/assets/loading.json';
 import { cartAll } from '../features/cart/cartSlice';
+import { getUser } from '../features/user/userSlice';
 
 const totalValues = (cartTable: CartType[], clothesTable: ClothType[]) => {
   let total = 0;
@@ -46,7 +47,7 @@ export const Checkout = () => {
 
   const cart = useAppSelector(cartAll);
 
-  const token = JSON.parse(localStorage.getItem('CLOTHES-SHOP_token') as string);
+  const user = useAppSelector(getUser);
 
   useEffect(() => {
     if (clothes.items.length === 0) dispatch(fetchClothes());
@@ -79,17 +80,17 @@ export const Checkout = () => {
               <span className="details">{totalValues(cart.items, clothes.items).total} £</span>
             </p>
             <ConfirmCheckout className="normal">
-              <button disabled={cart.items.length === 0 || !token} onClick={clickHandler}>
+              <button disabled={cart.items.length === 0 || !user.token} onClick={clickHandler}>
                 PURCHASE
               </button>
-              {!token && cart.items.length > 0 && <p className="not-logged">You have to be logged in.</p>}
+              {!user.token && cart.items.length > 0 && <p className="not-logged">You have to be logged in.</p>}
             </ConfirmCheckout>
           </CheckoutDetails>
           <ConfirmCheckout className="additional">
-            <button disabled={cart.items.length === 0 || !token} onClick={clickHandler}>
+            <button disabled={cart.items.length === 0 || !user.token} onClick={clickHandler}>
               PURCHASE
             </button>
-            {!token && cart.items.length > 0 && <p className="not-logged">You have to be logged in.</p>}
+            {!user.token && cart.items.length > 0 && <p className="not-logged">You have to be logged in.</p>}
           </ConfirmCheckout>
         </Container>
       )}

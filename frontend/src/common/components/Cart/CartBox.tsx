@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 type CartBoxProps = {
   toggleCart: () => void;
-  amount: () => number | string;
+  amount: number;
 };
 
 export const CartBox = ({ toggleCart, amount }: CartBoxProps) => {
@@ -26,7 +26,7 @@ export const CartBox = ({ toggleCart, amount }: CartBoxProps) => {
       {createPortal(<Backdrop onClick={toggleCart} />, document.querySelector('#backdrop-root') as HTMLDivElement)}
       <Container>
         <p>
-          <span>My bag</span>, {amount()}
+          <span>My bag</span>, {amount}
         </p>
         <div className="items">
           {clothes.loading && <p>Loading...</p>}

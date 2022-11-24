@@ -52,5 +52,7 @@ const cart = (state: RootState) => state.cart;
 
 export const cartAll = createSelector([cart], (cart) => cart);
 
+export const cartAmount = createSelector([cart], (cart) => cart.items.map((item) => item.amount).reduce((prev, cur) => prev + cur, 0));
+
 export default cartSlice.reducer;
 export const { add, remove, setCart } = cartSlice.actions;

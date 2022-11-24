@@ -11,7 +11,7 @@ export const CategoriesList = ({ categories, filter }: CategoriesListProps) => {
     <List>
       {categories.map((category) => (
         <li key={category}>
-          <Link to={`/${filter}/${category}`}>{category}</Link>
+          <Link to={`/${filter}/${category.toLowerCase()}`}>{category}</Link>
         </li>
       ))}
     </List>
@@ -20,13 +20,15 @@ export const CategoriesList = ({ categories, filter }: CategoriesListProps) => {
 
 const List = styled.ul`
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 
   a {
     text-decoration: none;
     color: inherit;
     font-size: 1.4rem;
     font-weight: 700;
+    padding: 0.4rem 0.4rem;
+    border-bottom: 3px solid #e50010;
   }
 
   @media (max-width: 400px) {

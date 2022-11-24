@@ -3,8 +3,9 @@ import { useParams, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { useAppDispatch } from '../common/hooks/useRedux';
+import { useAppDispatch, useAppSelector } from '../common/hooks/useRedux';
 import { fetchClothes } from '../features/clothes/clothesSlice';
+import { clothesAll } from '../features/clothes/clothesSlice';
 import { CategoryList } from '../common/components/Category/CategoryList';
 
 type CategoryProps = {
@@ -16,9 +17,11 @@ export const Category = ({ forWho }: CategoryProps) => {
   const { category } = useParams();
   const { pathname } = useLocation();
 
+  const clothes = useAppSelector(clothesAll);
+
   useEffect(() => {
-    dispatch(fetchClothes());
-  }, [dispatch]);
+    if (clothes.items.length === 0) dispatch(fetchClothes());
+  }, [clothes.items.length, dispatch]);
 
   return (
     <Container>

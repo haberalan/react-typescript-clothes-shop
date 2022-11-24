@@ -1,5 +1,5 @@
 import { useParams } from 'react-router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
@@ -9,37 +9,9 @@ import { clothesAll, fetchClothes } from '../features/clothes/clothesSlice';
 import { PurchaseType } from '../types/Purchase';
 import { useAppSelector } from '../common/hooks/useRedux';
 import { Loader } from '../common/components/Utils/Loader';
-import { ClothType } from '../types/Cloth';
-import { CartType } from '../types/Cart';
 import { PurchaseDetailsList } from '../common/components/Profile/PurchaseDetailsList';
 import { getUser } from '../features/user/userSlice';
-
-const totalValues = (cartTable: CartType[], clothesTable: ClothType[]) => {
-  let total = 0;
-  let tax = 0;
-  let quantity = 0;
-  if (cartTable.length === 0) {
-    return {
-      total: total.toFixed(2),
-      tax: tax.toFixed(2),
-      quantity,
-    };
-  }
-  cartTable.forEach((cartItem) => {
-    const itemDetails = clothesTable.find((item) => item._id === cartItem._id);
-
-    total += itemDetails!.price * cartItem.amount;
-    quantity += cartItem.amount;
-  });
-
-  tax = total * 0.21;
-
-  return {
-    total: total.toFixed(2),
-    tax: tax.toFixed(2),
-    quantity,
-  };
-};
+import { totalValues } from '../common/Helpers/totalValues';
 
 export const Purchase = () => {
   const { id } = useParams();
@@ -55,7 +27,9 @@ export const Purchase = () => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [item, setItem] = useState<PurchaseType | null>(null);
+  const [purchase, setPurchase] = useState<PurchaseType | null>(null);
+
+  const values = useCallback(() => totalValues(purchase!.items, clothes.items), [clothes.items, purchase]);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -75,7 +49,7 @@ export const Purchase = () => {
 
       const data = await res.json();
 
-      setItem(data[0]);
+      setPurchase(data[0]);
       setLoading(false);
     };
 
@@ -87,25 +61,25 @@ export const Purchase = () => {
       <h3>Purchase</h3>
       {loading && clothes.loading && !error && <Loader />}
       {!loading && !clothes.loading && error && <p className="error">There is no such purchase.</p>}
-      {!loading && !clothes.loading && !error && item && (
+      {!loading && !clothes.loading && !error && purchase && (
         <Content>
-          <PurchaseDetailsList items={item.items} />
+          <PurchaseDetailsList items={purchase.items} />
           <Details>
             <div>
               <p className="text">Date:</p>
-              <p className="value">{format(new Date(item.createdAt), 'do LLLL yyyy')}</p>
+              <p className="value">{format(new Date(purchase.createdAt), 'do LLLL yyyy')}</p>
             </div>
             <div>
               <p className="text">Tax 21%:</p>
-              <p className="value">{totalValues(item.items, clothes.items).tax}£</p>
+              <p className="value">{values().tax}£</p>
             </div>
             <div>
               <p className="text">Quantity:</p>
-              <p className="value">{totalValues(item.items, clothes.items).quantity}</p>
+              <p className="value">{values().quantity}</p>
             </div>
             <div>
               <p className="text">Price:</p>
-              <p className="value">{totalValues(item.items, clothes.items).total} £</p>
+              <p className="value">{values().total} £</p>
             </div>
           </Details>
         </Content>

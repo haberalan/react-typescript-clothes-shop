@@ -1,45 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
+import { fetchPurchases, purchasesAll, purchasesStatus } from '../../../features/purchases/purchasesSlice';
+import { getUser } from '../../../features/user/userSlice';
 
-import { PurchaseType } from '../../../types/Purchase';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { Loader } from '../Utils/Loader';
 import { PurchasesItem } from './PurchasesItem';
 
 export const PurchasesList = () => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [items, setItems] = useState<PurchaseType[]>([]);
+  const dispatch = useAppDispatch();
+
+  const purchases = useAppSelector(purchasesAll);
+
+  const status = useAppSelector(purchasesStatus);
+
+  const user = useAppSelector(getUser);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      const res = await fetch(process.env.REACT_APP_API + 'purchase/all', {
-        method: 'GET',
-        headers: {
-          Authorization: `Baerer ${JSON.parse(localStorage.getItem('CLOTHES-SHOP_token') as string)}`,
-        },
-      });
-
-      if (!res.ok) {
-        setError(true);
-      } else {
-        const data = await res.json();
-
-        setItems(data);
-      }
-
-      setLoading(false);
-    };
-
-    fetchItems();
-  }, []);
+    if (purchases.length === 0) dispatch(fetchPurchases({ token: user.token }));
+  }, [purchases.length, user.token, dispatch]);
 
   return (
     <Container>
       <h3>Purchases</h3>
-      {loading && !error && <Loader />}
-      {!loading && !error && items?.length !== 0 && (
+      {status.loading && !status.error && <Loader />}
+      {!status.loading && !status.error && purchases?.length !== 0 && (
         <List>
-          {items.map((item) => (
+          {purchases.map((item) => (
             <PurchasesItem key={item._id} item={item} />
           ))}
         </List>
