@@ -59,7 +59,7 @@ export const Purchase = () => {
   return (
     <Container>
       <h3>Purchase</h3>
-      {loading && clothes.loading && !error && <Loader />}
+      {(loading || clothes.loading) && !error && <Loader />}
       {!loading && !clothes.loading && error && <p className="error">There is no such purchase.</p>}
       {!loading && !clothes.loading && !error && purchase && (
         <Content>
