@@ -18,5 +18,6 @@ export const Layout = ({ children }: LayoutProps) => {
 };
 
 const StyledMain = styled.main`
+  min-height: 70vh;
   margin: 4rem 0 6rem;
 `;
