@@ -18,7 +18,7 @@ export const Layout = ({ children }: LayoutProps) => {
 };
 
 const StyledMain = styled.main`
-  min-height: 400px;
+  min-height: 600px;
   margin: 4rem 0 6rem;
   display: flex;
   flex-direction: column;
