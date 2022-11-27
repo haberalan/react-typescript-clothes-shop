@@ -18,6 +18,9 @@ export const Layout = ({ children }: LayoutProps) => {
 };
 
 const StyledMain = styled.main`
-  min-height: 70vh;
+  min-height: 400px;
   margin: 4rem 0 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
