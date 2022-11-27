@@ -1,6 +1,6 @@
 # react-typescript-clothes-shop
 
-Clothes shop - you can try it [here](https://haber-clothes-shop.netlify.app/)
+Clothes shop - [demo](https://haber-clothes-shop.netlify.app/)
 
 ## Technologies
 
@@ -22,6 +22,7 @@ Clothes shop - you can try it [here](https://haber-clothes-shop.netlify.app/)
 # To do
 
 - Adjust the code
+- Rewrite with usage of MUI
 
 ## Installation
 
