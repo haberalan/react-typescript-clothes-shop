@@ -11,7 +11,7 @@ import { useAppSelector } from '../common/hooks/useRedux';
 import { Loader } from '../common/components/Utils/Loader';
 import { PurchaseDetailsList } from '../common/components/Profile/PurchaseDetailsList';
 import { getUser } from '../features/user/userSlice';
-import { totalValues } from '../common/Helpers/totalValues';
+import { totalValues } from '../common/helpers/totalValues';
 
 export const Purchase = () => {
   const { id } = useParams();

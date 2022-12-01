@@ -2,11 +2,17 @@ import styled from 'styled-components';
 
 import { useAppDispatch, useAppSelector } from '../common/hooks/useRedux';
 import { getUser, logoutUser } from '../features/user/userSlice';
+import { clearPurchases } from '../features/purchases/purchasesSlice';
 import { PurchasesList } from '../common/components/Profile/PurchasesList';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(getUser);
+
+  const logoutHandler = () => {
+    dispatch(logoutUser());
+    dispatch(clearPurchases());
+  };
 
   return (
     <Container>
@@ -16,7 +22,7 @@ export const Profile = () => {
         </h2>
       </Header>
       <PurchasesList />
-      <button onClick={() => dispatch(logoutUser())}>logout</button>
+      <button onClick={logoutHandler}>logout</button>
     </Container>
   );
 };

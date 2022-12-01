@@ -37,7 +37,11 @@ export const fetchPurchases = createAsyncThunk('purchases/fetchPurchases', async
 const purchasesSlice = createSlice({
   name: 'purchases',
   initialState,
-  reducers: {},
+  reducers: {
+    clearPurchases: (state) => {
+      state.items = [];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchPurchases.pending, (state) => {
       state.loading = true;
@@ -64,3 +68,4 @@ export const purchasesAll = createSelector([purchases], (purchases) => purchases
 export const purchaseOne = createSelector([purchases, (purchases, id: number) => id], (purchases, id) => purchases.items.find((item) => item._id === id));
 
 export default purchasesSlice.reducer;
+export const { clearPurchases } = purchasesSlice.actions;
