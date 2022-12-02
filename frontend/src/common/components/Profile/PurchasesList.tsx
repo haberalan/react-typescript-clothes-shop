@@ -4,7 +4,7 @@ import { fetchPurchases, purchasesAll, purchasesStatus } from '../../../features
 import { getUser } from '../../../features/user/userSlice';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
-import { Loader } from '../Utils/Loader';
+import { Loader } from '../Helpers/Loader';
 import { PurchasesItem } from './PurchasesItem';
 
 export const PurchasesList = () => {

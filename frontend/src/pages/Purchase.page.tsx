@@ -8,10 +8,10 @@ import { useAppDispatch } from '../common/hooks/useRedux';
 import { clothesAll, fetchClothes } from '../features/clothes/clothesSlice';
 import { PurchaseType } from '../types/Purchase';
 import { useAppSelector } from '../common/hooks/useRedux';
-import { Loader } from '../common/components/Utils/Loader';
+import { Loader } from '../common/components/Helpers/Loader';
 import { PurchaseDetailsList } from '../common/components/Profile/PurchaseDetailsList';
 import { getUser } from '../features/user/userSlice';
-import { totalValues } from '../common/helpers/totalValues';
+import { totalValues } from '../common/utils/totalValues';
 
 export const Purchase = () => {
   const { id } = useParams();

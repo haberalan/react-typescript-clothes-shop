@@ -3,7 +3,7 @@ import { FormEvent, useState, useCallback } from 'react';
 
 import { useAppSelector, useAppDispatch } from '../common/hooks/useRedux';
 import { getUser, signupUser } from '../features/user/userSlice';
-import { ValidatedInput } from '../common/components/Utils/ValidatedInput';
+import { ValidatedInput } from '../common/components/Helpers/ValidatedInput';
 import { Link } from 'react-router-dom';
 
 export const Signup = () => {

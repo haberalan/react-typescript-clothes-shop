@@ -8,7 +8,7 @@ import { CardForm } from '../common/components/Checkout/CardForm';
 import { AddressForm } from '../common/components/Checkout/AddressForm';
 import { useNavigate } from 'react-router';
 import { getUser } from '../features/user/userSlice';
-import { totalValues } from '../common/helpers/totalValues';
+import { totalValues } from '../common/utils/totalValues';
 
 export const CheckoutPurchase = () => {
   const dispatch = useAppDispatch();
