@@ -31,24 +31,31 @@ Remember to create your own MONGO_URI in ./backend/.env
 ```
 git clone git@github.com:haberalan/react-typescript-clothes-shop.git
 ```
+
 ```
 cd react-typescript-clothes-shop
 ```
+
 ```
 cd frontend
 ```
+
 ```
 npm install
 ```
+
 ```
 npm start
 ```
+
 ```
 cd ../backend
 ```
+
 ```
 npm install
 ```
+
 ```
 npm run dev
 ```
