@@ -5,7 +5,7 @@ import Lottie from 'react-lottie-player';
 
 import { useAppDispatch } from '../common/hooks/useRedux';
 import { add } from '../features/cart/cartSlice';
-import { ItemImageSlider } from '../common/components/Helpers/ItemImageSlider';
+import { ItemImageSlider } from '../common/components/helpers/ItemImageSlider';
 import lottieJson from '../common/assets/loading.json';
 import { ClothType } from '../types/Cloth';
 import { Link } from 'react-router-dom';

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
 import { useAppDispatch, useAppSelector } from '../common/hooks/useRedux';
 import { clothesAll, fetchClothes } from '../features/clothes/clothesSlice';
-import { CheckoutList } from '../common/components/Checkout/CheckoutList';
+import { CheckoutList } from '../common/components/checkout/CheckoutList';
 import { CartType } from '../types/Cart';
 import { ClothType } from '../types/Cloth';
 import lottieJson from '../common/assets/loading.json';

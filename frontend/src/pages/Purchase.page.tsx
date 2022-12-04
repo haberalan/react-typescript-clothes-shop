@@ -8,8 +8,8 @@ import { useAppDispatch } from '../common/hooks/useRedux';
 import { clothesAll, fetchClothes } from '../features/clothes/clothesSlice';
 import { PurchaseType } from '../types/Purchase';
 import { useAppSelector } from '../common/hooks/useRedux';
-import { Loader } from '../common/components/Helpers/Loader';
-import { PurchaseDetailsList } from '../common/components/Profile/PurchaseDetailsList';
+import { Loader } from '../common/components/helpers/Loader';
+import { PurchaseDetailsList } from '../common/components/profile/PurchaseDetailsList';
 import { getUser } from '../features/user/userSlice';
 import { totalValues } from '../common/utils/totalValues';
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../common/hooks/useRedux';
 import { getUser, logoutUser } from '../features/user/userSlice';
 import { clearPurchases } from '../features/purchases/purchasesSlice';
-import { PurchasesList } from '../common/components/Profile/PurchasesList';
+import { PurchasesList } from '../common/components/profile/PurchasesList';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../common/hooks/useRedux';
 import { fetchClothes } from '../features/clothes/clothesSlice';
 import { clothesAll } from '../features/clothes/clothesSlice';
-import { CategoryList } from '../common/components/Category/CategoryList';
+import { CategoryList } from '../common/components/category/CategoryList';
 
 type CategoryProps = {
   forWho: string;

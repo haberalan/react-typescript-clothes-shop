@@ -1,4 +1,4 @@
-import { CategoriesList } from '../common/components/Helpers/CategoriesList';
+import { CategoriesList } from '../common/components/helpers/CategoriesList';
 
 import styled from 'styled-components';
 

@@ -6,8 +6,8 @@ import { useAppSelector, useAppDispatch } from '../common/hooks/useRedux';
 import { setCart } from '../features/cart/cartSlice';
 import { setUser } from '../features/user/userSlice';
 import { GlobalStyle } from './GlobalStyles';
-import { ScrollToTop } from '../common/components/Helpers/ScrollToTop';
-import { Layout } from '../common/components/Layout/Layout';
+import { ScrollToTop } from '../common/components/helpers/ScrollToTop';
+import { Layout } from '../common/components/layout/Layout';
 
 import { Home } from '../pages/Home.page';
 import { ForWho } from '../pages/ForWho.page';

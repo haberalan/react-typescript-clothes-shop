@@ -6,7 +6,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import LogoImage from '../../assets/gm2l.webp';
 import { useAppSelector } from '../../hooks/useRedux';
 import { cartAmount } from '../../../features/cart/cartSlice';
-import { CartBox } from '../Cart/CartBox';
+import { CartBox } from '../cart/CartBox';
 
 export const Header = () => {
   const [cartOpen, setCartOpen] = useState(false);
