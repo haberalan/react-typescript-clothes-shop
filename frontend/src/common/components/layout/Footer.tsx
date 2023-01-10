@@ -74,7 +74,7 @@ export const Footer = () => {
           </ul>
         </MenuContainer>
       </Menus>
-      <Copyright href="https://github.com/haberalan">© 2022 Alan Haber</Copyright>
+      <Copyright href="https://github.com/haberalan">© {new Date().getFullYear()} Alan Haber</Copyright>
     </StyledFooter>
   );
 };
